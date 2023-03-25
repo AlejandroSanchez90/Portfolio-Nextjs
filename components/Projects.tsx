@@ -1,8 +1,26 @@
 import { motion } from 'framer-motion';
 type Props = {};
-
+interface Project {
+  image: string;
+  name: string;
+  description: string;
+}
 function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+  // const projects = [1, 2, 3, 4, 5];
+  const projects: Project[] = [
+    {
+      name: 'Netflix Clone',
+      description:
+        'Netflix clone app that has a Log In and Log Out Authentication with Google It has a beutiful Home Screen with all the movies looking just like Netflix. There is also a subscription page where you can see your active monthly subscription. We also use Stripe Payments for the monthly Netflix Subscriptions!',
+      image: 'images/netflix-clone-thumbnail.png',
+    },
+    {
+      name: 'Amazon Clone',
+      description:
+        'Amazon clone app that has a Log In and Log Out Authentication with NextAuth It has a beutiful Home Screen with all the products looking just like Amazon. There is also a checkout page where you can see your Cart. We also use Stripe Payments for the checkout logic',
+      image: 'images/amazon-clone-thumbnail.png',
+    },
+  ];
   return (
     <motion.div
       initial={{
@@ -33,8 +51,8 @@ function Projects({}: Props) {
                   y: 0,
                 }}
                 viewport={{ once: true }}
-                src='images/netflix-clone-thumbnail.png'
-                alt='picture of website portfolio project netflix clone'
+                src={project.image}
+                alt={project.name}
                 className='h-72 rounded-lg'
               />
               <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
@@ -42,14 +60,9 @@ function Projects({}: Props) {
                   <span className='underline decoration-[#F7AB0A]/50'>
                     Case Study {i + 1} of {projects.length}:
                   </span>{' '}
-                  Netflix Clone
+                  {project.name}
                 </h4>
-                <p>
-                  Netflix clone app that has a Log In and Log Out Authentication with Google. It has
-                  a beutiful Home Screen with all the movies looking just like Netflix. There is
-                  also a subscription page where you can see your active monthly subscription. We
-                  also use Stripe Payments for the monthly Netflix Subscriptions!
-                </p>
+                <p>{project.description}</p>
               </div>
             </div>
           );
