@@ -5,6 +5,8 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import WorkExperience from '@/components/WorkExperience';
+import Skills from '@/components/Skills';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,23 +16,23 @@ export default function Home() {
       <Head>
         <title>Alejandro's Portfolio</title>
       </Head>
-
-      {/* Header */}
       <Header />
 
-      {/* hero */}
       <section id='hero' className='snap-start'>
         <Hero />
       </section>
 
-      {/* About */}
       <section id='about' className='snap-center'>
         <About />
       </section>
 
-      {/* Experiences */}
+      {/* <section id='experience' className='snap-center'>
+        <WorkExperience />
+      </section> */}
 
-      {/* Skills */}
+      <section id='skills' className='snap-center'>
+        <Skills />
+      </section>
 
       {/* Projects */}
 
