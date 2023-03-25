@@ -3,9 +3,7 @@ type Props = {};
 function ExperienceCard({}: Props) {
   return (
     <div>
-      <article>
-        <img src='' alt='' srcset='' />
-      </article>
+      <article></article>
     </div>
   );
 }
