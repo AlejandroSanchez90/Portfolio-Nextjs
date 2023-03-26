@@ -23,6 +23,8 @@ function WorkExperience({}: Props) {
         <ExperienceCard />
         <ExperienceCard />
         <ExperienceCard />
+        <ExperienceCard />
+        <ExperienceCard />
       </div>
     </motion.div>
   );
