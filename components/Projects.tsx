@@ -4,6 +4,7 @@ interface Project {
   image: string;
   name: string;
   description: string;
+  link?: string;
 }
 function Projects({}: Props) {
   // const projects = [1, 2, 3, 4, 5];
@@ -13,12 +14,14 @@ function Projects({}: Props) {
       description:
         'Netflix clone app that has a Log In and Log Out Authentication with Google It has a beutiful Home Screen with all the movies looking just like Netflix. There is also a subscription page where you can see your active monthly subscription. We also use Stripe Payments for the monthly Netflix Subscriptions!',
       image: 'images/netflix-clone-thumbnail.png',
+      link: 'https://netflix-clone-five-gray.vercel.app/',
     },
     {
       name: 'Amazon Clone',
       description:
         'Amazon clone app that has a Log In and Log Out Authentication with NextAuth It has a beutiful Home Screen with all the products looking just like Amazon. There is also a checkout page where you can see your Cart. We also use Stripe Payments for the checkout logic',
       image: 'images/amazon-clone-thumbnail.png',
+      link: 'https://amazon-clone-pink-nine.vercel.app/',
     },
   ];
   return (
@@ -38,23 +41,25 @@ function Projects({}: Props) {
         {projects.map((project, i) => {
           return (
             <div className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-5 md:p-44 h-screen'>
-              <motion.img
-                initial={{
-                  y: -300,
-                  opacity: 0,
-                }}
-                transition={{
-                  duration: 1.2,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{ once: true }}
-                src={project.image}
-                alt={project.name}
-                className='h-52 md:h-72  rounded-lg'
-              />
+              <a href={project.link}>
+                <motion.img
+                  initial={{
+                    y: -300,
+                    opacity: 0,
+                  }}
+                  transition={{
+                    duration: 1.2,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{ once: true }}
+                  src={project.image}
+                  alt={project.name}
+                  className='h-52 md:h-72  rounded-lg'
+                />
+              </a>
               <div className='space-y-2 md:space-y-10 px-0 md:px-10 max-w-6xl'>
                 <h4 className='text-xl md:text-4xl font-semibold text-center'>
                   <span className='underline decoration-[#F7AB0A]/50'>
