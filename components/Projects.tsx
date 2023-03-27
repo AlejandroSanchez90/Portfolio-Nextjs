@@ -1,29 +1,13 @@
 import { motion } from 'framer-motion';
-type Props = {};
-interface Project {
-  image: string;
-  name: string;
-  description: string;
-  link?: string;
-}
-function Projects({}: Props) {
+import { Project } from '@/typings';
+import { urlFor } from '@/sanity';
+type Props = {
+  projects: Project[];
+};
+
+function Projects({ projects }: Props) {
   // const projects = [1, 2, 3, 4, 5];
-  const projects: Project[] = [
-    {
-      name: 'Netflix Clone',
-      description:
-        'Netflix clone app that has a Log In and Log Out Authentication with Google It has a beutiful Home Screen with all the movies looking just like Netflix. There is also a subscription page where you can see your active monthly subscription. We also use Stripe Payments for the monthly Netflix Subscriptions!',
-      image: 'images/netflix-clone-thumbnail.png',
-      link: 'https://netflix-clone-five-gray.vercel.app/',
-    },
-    {
-      name: 'Amazon Clone',
-      description:
-        'Amazon clone app that has a Log In and Log Out Authentication with NextAuth It has a beutiful Home Screen with all the products looking just like Amazon. There is also a checkout page where you can see your Cart. We also use Stripe Payments for the checkout logic',
-      image: 'images/amazon-clone-thumbnail.png',
-      link: 'https://amazon-clone-pink-nine.vercel.app/',
-    },
-  ];
+
   return (
     <motion.div
       initial={{
@@ -43,7 +27,7 @@ function Projects({}: Props) {
             <div
               key={i}
               className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-5 md:p-44 h-screen'>
-              <a href={project.link}>
+              <a href={project.linkToBuild}>
                 <motion.img
                   initial={{
                     y: -300,
@@ -57,8 +41,8 @@ function Projects({}: Props) {
                     y: 0,
                   }}
                   viewport={{ once: true }}
-                  src={project.image}
-                  alt={project.name}
+                  src={urlFor(project.image).url()}
+                  alt={project.title}
                   className='h-52 md:h-72  rounded-lg'
                 />
               </a>
@@ -67,9 +51,9 @@ function Projects({}: Props) {
                   <span className='underline decoration-[#F7AB0A]/50'>
                     Case Study {i + 1} of {projects.length}:
                   </span>{' '}
-                  {project.name}
+                  {project.title}
                 </h4>
-                <p className='text-sm md:text-base'>{project.description}</p>
+                <p className='text-sm md:text-base'>{project.summary}</p>
               </div>
             </div>
           );

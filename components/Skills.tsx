@@ -1,9 +1,12 @@
+import { Skill as SkillType } from '@/typings';
 import { motion } from 'framer-motion';
 import Skill from './Skill';
 
-type Props = {};
+type Props = {
+  skills: SkillType[];
+};
 
-function Skills({}: Props) {
+function Skills({ skills }: Props) {
   return (
     <motion.div
       initial={{
@@ -35,22 +38,9 @@ function Skills({}: Props) {
         }}
         viewport={{ once: true }}
         className='grid grid-cols-4 gap-5'>
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+        {skills.map((skill) => (
+          <Skill skill={skill} />
+        ))}
       </motion.div>
     </motion.div>
   );

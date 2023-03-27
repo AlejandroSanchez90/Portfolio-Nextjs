@@ -1,8 +1,12 @@
+import { urlFor } from '@/sanity';
+import { PageInfo } from '@/typings';
 import { motion } from 'framer-motion';
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function About({}: Props) {
+function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{
@@ -17,8 +21,8 @@ function About({}: Props) {
         About
       </h3>
       <motion.img
-        className='-mb-32 md:mb-0 flex-shrink-0 w-48 h-48  rounded-full object-contain md:object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]'
-        src='/images/about_photo.jpg'
+        className='-mb-32 md:mb-0 flex-shrink-0 w-48 h-48  rounded-full object-contain md:object-contain md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]'
+        src={urlFor(pageInfo?.profilePic).url()}
         initial={{
           x: -200,
           opacity: 0,
@@ -37,16 +41,7 @@ function About({}: Props) {
         <h4 className='text-xl md:text-4xl font-semibold'>
           Here is a <span className='underline decoration-[#f7ab0a]/50'>little</span> background
         </h4>
-        <p className='text-xs md:text-base'>
-          I am a web developer with a passion for coding. I have been coding for the past 8 years,
-          mainly working on hobby projects using C#. I always had an interest in technology and
-          programming, so it was only natural for me to pursue a career in this field. After moving
-          to the United States, I decided to make web development my specialty. I have become
-          proficient in a variety of programming languages, including HTML, CSS,
-          JavaScript/TypeScript, Tailwind and React/NextJS. I am always looking for new and exciting
-          ways to improve my skills and stay up-to-date with the latest trends and technologies in
-          the industry.
-        </p>
+        <p className='text-xs md:text-base'>{pageInfo?.backgroundInformation}</p>
       </div>
     </motion.div>
   );

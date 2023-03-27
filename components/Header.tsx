@@ -1,10 +1,15 @@
-type Props = {};
 import { SocialIcon } from 'react-social-icons';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 import Router from 'next/router';
 import { useRouter } from 'next/router';
-function Header({}: Props) {
+import { Social } from '@/typings';
+
+type Props = {
+  socials: Social[];
+};
+
+function Header({ socials }: Props) {
   const naviate = useRouter();
   const navigate = () => {
     Router.push('/');
@@ -26,21 +31,9 @@ function Header({}: Props) {
           duration: 1.5,
         }}
         className='flex items-center'>
-        <SocialIcon
-          url='https://www.instagram.com/alex9010/'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://github.com/AlejandroSanchez90'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://www.linkedin.com/in/alejandroasp9010'
-          fgColor='gray'
-          bgColor='transparent'
-        />
+        {socials.map((social) => (
+          <SocialIcon url={social.url} key={social._id} fgColor='gray' bgColor='transparent' />
+        ))}
       </motion.div>
       <motion.div
         initial={{
