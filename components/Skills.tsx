@@ -39,7 +39,7 @@ function Skills({ skills }: Props) {
         viewport={{ once: true }}
         className='grid grid-cols-4 gap-5'>
         {skills.map((skill) => (
-          <Skill skill={skill} />
+          <Skill skill={skill} key={skill._id} />
         ))}
       </motion.div>
     </motion.div>
