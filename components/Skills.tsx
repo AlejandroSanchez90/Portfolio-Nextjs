@@ -25,18 +25,17 @@ function Skills({ skills }: Props) {
         Hover over a skill for current profiency
       </h3>
       <motion.div
-        initial={{
-          x: 200,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1.5,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        viewport={{ once: true }}
+        // initial={{
+        //   x: 200,
+        //   opacity: 0,
+        // }}
+        // transition={{
+        //   duration: 1,
+        // }}
+        // whileInView={{
+        //   opacity: 1,
+        //   x: 0,
+        // }}
         className='grid grid-cols-4 gap-5'>
         {skills.map((skill) => (
           <Skill skill={skill} key={skill._id} />
