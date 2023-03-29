@@ -1,8 +1,7 @@
 import { urlFor } from '@/sanity';
 import { Skill } from '@/typings';
 import { motion } from 'framer-motion';
-import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css';
+
 type Props = {
   directionLeft?: boolean;
   skill: Skill;
@@ -10,12 +9,11 @@ type Props = {
 
 function Skill({ directionLeft, skill }: Props) {
   return (
-    <div className={`${skill.skillName} group relative flex cursor-pointer`}>
-      <Tooltip anchorSelect={`.${skill.skillName}`} content={skill.skillName} />
+    <div className='group relative flex cursor-pointer'>
       <motion.img
         viewport={{ once: true }}
         src={urlFor(skill.image).url()}
-        className=' rounded-full p-2 border border-gray-500 object-cover w-16 h-16 md:h-24 md:w-24 xl:w-30 xl:h-30 filter group-hover:grayscale transition duration-300 ease-in-out'
+        className='rounded-full p-2 border border-gray-500 object-cover w-16 h-16 md:h-24 md:w-24 xl:w-30 xl:h-30 filter group-hover:grayscale transition duration-300 ease-in-out'
         alt=''
       />
       <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-16 h-16 md:h-24 md:w-24 xl:w-30 xl:h-30 rounded-full'>
