@@ -21,9 +21,7 @@ function Skill({ directionLeft, skill }: Props) {
       <div className='absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white w-16 h-16 md:h-24 md:w-24 xl:w-30 xl:h-30 rounded-full'>
         <div className='flex flex-col items-center justify-center h-full'>
           <p className='text-xl md:text-2xl font-bold text-black opacity-100'>{skill.progress}%</p>
-          <p className='text-xl md:text-xs font-bold text-gray-800 opacity-100'>
-            {skill.skillName}
-          </p>
+          <p className='text-xs font-bold text-gray-800 opacity-100'>{skill.skillName}</p>
         </div>
       </div>
     </div>
