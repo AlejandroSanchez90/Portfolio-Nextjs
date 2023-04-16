@@ -6,7 +6,11 @@ export const fetchProjects = async () => {
   );
   const data = await res.json();
   const projects: Project[] = data.result;
-  console.log(projects);
+
+  projects.sort((a, b) => (b._createdAt > a._createdAt ? 1 : -1));
+  projects.map((project) => {
+    console.log(project.title);
+  });
 
   return projects;
 };
