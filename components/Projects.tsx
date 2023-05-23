@@ -20,7 +20,14 @@ function Projects({ projects }: Props) {
         duration: 1.5,
       }}
       className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0'>
-      <h3 className='absolute top-20 uppercase tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
+      <div className='absolute top-20 flex flex-col'>
+        <h3 className=' uppercase  text-gray-500 text-2xl text-center tracking-[20px] ml-5'>
+          Projects
+        </h3>
+        <h1 className=' uppercase  text-gray-300 text-sm text-center tracking-[5px]'>
+          Click thumbnail for Demo
+        </h1>
+      </div>
       <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 '>
         {projects.map((project, i) => {
           return (
@@ -43,7 +50,7 @@ function Projects({ projects }: Props) {
                   viewport={{ once: true }}
                   src={urlFor(project.image).url()}
                   alt={project.title}
-                  className='h-52 md:h-72  rounded-lg'
+                  className='h-52 md:h-60  rounded-lg'
                 />
               </a>
               <div className='space-y-2 md:space-y-10 px-0 md:px-10 max-w-6xl'>
@@ -64,7 +71,9 @@ function Projects({ projects }: Props) {
                     />
                   ))}
                 </div>
-                <p className='text-sm md:text-base'>{project.summary}</p>
+                <div className='max-h-28 overflow-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
+                  <p className='text-sm md:text-base'>{project.summary}</p>
+                </div>
               </div>
             </div>
           );
